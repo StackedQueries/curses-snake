@@ -86,10 +86,9 @@ def draw_game(stdscr):
         cursor_y = max(1, cursor_y)
         cursor_y = min(height - 2, cursor_y)
 
-
-        #stdscr.addstr(1, 1, "frame:{}".format(frame))
-        #stdscr.addstr(2, 1, "key:{}".format(k))
-        #stdscr.addstr(3, 1, "char:{}".format(BLOCK))
+        sp = snake_points(snake)
+        if sp.count((cursor_y,cursor_x)) > 0:
+            exit()
 
         stdscr.attron(curses.color_pair(1))
         stdscr.border();
@@ -99,12 +98,10 @@ def draw_game(stdscr):
         if (cursor_y, cursor_x) == apple:
             snake = Node((cursor_y, cursor_x), snake)
             apple = draw_apple(stdscr,snake)
-        sp = snake_points(snake)
 
         draw_snake(stdscr, snake, (cursor_y,cursor_x), True)
 
-        if sp.count((cursor_y,cursor_x)) > 0:
-            exit()
+
 
         stdscr.addstr(apple[0], apple[1], "*")
 
