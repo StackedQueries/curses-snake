@@ -1,0 +1,8 @@
+/venv/
+/.idea/cursesSnake.iml
+/main.py
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/test.py
+/.idea/.gitignore
