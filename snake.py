@@ -129,12 +129,13 @@ def draw_game(stdscr):
         stdscr.refresh()
 
         # set to continue without input
-        curses.halfdelay(1)
+        stdscr.nodelay(1)
         last=k
         k = stdscr.getch()
         if k == -1:
             k = last
 
+        curses.napms(100)
 
 def main():
     curses.wrapper(draw_game)
